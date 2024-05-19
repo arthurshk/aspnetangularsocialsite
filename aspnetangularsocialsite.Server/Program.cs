@@ -1,4 +1,11 @@
+using aspnetangularsocialsite.Server.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<SiteDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SiteDbContext")));
 
 // Add services to the container.
 
