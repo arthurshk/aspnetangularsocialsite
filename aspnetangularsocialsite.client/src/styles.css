@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, sans-serif;
+}
+
+.user-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.user-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
