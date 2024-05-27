@@ -1,0 +1,9 @@
+
+<div class="connection-list">
+  <h2>Connection List</h2>
+  <ul>
+    <li *ngFor="let connection of connections">
+      User: {{ connection.userId }} - Connected User: {{ connection.connectedUserId }} (Connected at: {{ connection.connectedAt }})
+    </li>
+  </ul>
+</div>

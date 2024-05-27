@@ -1,4 +1,3 @@
-// src/app/services/comment.service.ts
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,7 +8,7 @@ import { Comment } from '../models/comment';
   providedIn: 'root'
 })
 export class CommentService {
-  private apiUrl = 'https://localhost:5001/api/comments'; // Update with your actual API URL
+  private apiUrl = 'https://localhost:5001/api/comments'; 
 
   constructor(private http: HttpClient) { }
 

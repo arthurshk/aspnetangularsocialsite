@@ -1,0 +1,9 @@
+
+<div class="comment-list">
+  <h2>Comment List</h2>
+  <ul>
+    <li *ngFor="let comment of comments">
+      {{ comment.content }} (Created at: {{ comment.createdAt }})
+    </li>
+  </ul>
+</div>
