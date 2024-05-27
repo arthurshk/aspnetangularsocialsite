@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()" #registrationForm="ngForm">
+  <label>Username:</label>
+  <input type="text" name="username" [(ngModel)]="formData.username" required>
+
+  <label>Email:</label>
+  <input type="email" name="email" [(ngModel)]="formData.email" required>
+
+  <label>Password:</label>
+  <input type="password" name="password" [(ngModel)]="formData.password" required>
+
+  <button type="submit" [disabled]="registrationForm.invalid">Register</button>
+</form>

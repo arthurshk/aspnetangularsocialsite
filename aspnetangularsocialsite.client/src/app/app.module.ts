@@ -19,6 +19,8 @@ import { LikeFormComponent } from './components/like-form/like-form.component';
 import { ConnectionListComponent } from './components/connection-list/connection-list.component';
 import { ConnectionDetailComponent } from './components/connection-detail/connection-detail.component';
 import { ConnectionFormComponent } from './components/connection-form/connection-form.component';
+import { RegistrationComponent } from './components/registration/registration.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,12 @@ import { ConnectionFormComponent } from './components/connection-form/connection
     LikeFormComponent,
     ConnectionListComponent,
     ConnectionDetailComponent,
-    ConnectionFormComponent
+    ConnectionFormComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
