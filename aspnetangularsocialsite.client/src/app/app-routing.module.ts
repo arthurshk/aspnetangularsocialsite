@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -20,6 +19,8 @@ import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/user/user.component';  
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'user', component: UserComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserDetailComponent },
   { path: 'user-form', component: UserFormComponent },
@@ -34,9 +35,7 @@ const routes: Routes = [
   { path: 'connection-form', component: ConnectionFormComponent },
   { path: 'likes', component: LikeListComponent },
   { path: 'likes/:id', component: LikeDetailComponent },
-  { path: 'like-form', component: LikeFormComponent },
-  { path: 'user', component: UserComponent },
-  { path: '', component: HomeComponent }
+  { path: 'like-form', component: LikeFormComponent }
 ];
 
 @NgModule({
