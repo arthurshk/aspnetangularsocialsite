@@ -16,6 +16,8 @@ import { ConnectionFormComponent } from './components/connection-form/connection
 import { LikeListComponent } from './components/like-list/like-list.component';
 import { LikeDetailComponent } from './components/like-detail/like-detail.component';
 import { LikeFormComponent } from './components/like-form/like-form.component';
+import { HomeComponent } from './components/home/home.component';
+import { UserComponent } from './components/user/user.component';  
 
 const routes: Routes = [
   { path: 'users', component: UserListComponent },
@@ -33,7 +35,8 @@ const routes: Routes = [
   { path: 'likes', component: LikeListComponent },
   { path: 'likes/:id', component: LikeDetailComponent },
   { path: 'like-form', component: LikeFormComponent },
-  { path: '', redirectTo: '/users', pathMatch: 'full' } 
+  { path: 'user', component: UserComponent },
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({

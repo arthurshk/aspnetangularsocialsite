@@ -21,6 +21,8 @@ import { ConnectionDetailComponent } from './components/connection-detail/connec
 import { ConnectionFormComponent } from './components/connection-form/connection-form.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import { UserComponent } from './components/user/user.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { FormsModule } from '@angular/forms';
     ConnectionListComponent,
     ConnectionDetailComponent,
     ConnectionFormComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    HomeComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule, HttpClientModule,
