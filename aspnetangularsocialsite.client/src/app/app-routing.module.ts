@@ -16,10 +16,15 @@ import { LikeListComponent } from './components/like-list/like-list.component';
 import { LikeDetailComponent } from './components/like-detail/like-detail.component';
 import { LikeFormComponent } from './components/like-form/like-form.component';
 import { HomeComponent } from './components/home/home.component';
-import { UserComponent } from './components/user/user.component';  
+import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'user', component: UserComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserDetailComponent },

@@ -23,6 +23,15 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { UserComponent } from './components/user/user.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthGuard } from './auth.guard';
+import { AuthService } from './auth.service';
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -44,13 +53,24 @@ import { UserComponent } from './components/user/user.component';
     ConnectionFormComponent,
     RegistrationComponent,
     HomeComponent,
-    UserComponent
+    UserComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,
-    AppRoutingModule, FormsModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:5001'],
+        disallowedRoutes: ['localhost:5001/api/auth/login', 'localhost:5001/api/auth/register']
+      }
+    })
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
