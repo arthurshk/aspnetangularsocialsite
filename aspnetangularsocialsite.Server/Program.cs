@@ -7,13 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configure services
 builder.Services.AddDbContext<SiteDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SiteDbContext")));
 
-// Configure Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<SiteDbContext>()
+    .AddEntityFrameworkStores<SiteDbContext>() 
     .AddDefaultTokenProviders();
 
 // Configure JWT Authentication
@@ -36,14 +34,12 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-// Add controllers
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure middleware
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
