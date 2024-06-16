@@ -1,9 +1,9 @@
+using aspnetangularsocialsite.Server.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using aspnetangularsocialsite.Server.Models;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,7 +11,7 @@ builder.Services.AddDbContext<SiteDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("SiteDbContext")));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
-    .AddEntityFrameworkStores<SiteDbContext>() 
+    .AddEntityFrameworkStores<SiteDbContext>()
     .AddDefaultTokenProviders();
 
 // Configure JWT Authentication
@@ -40,9 +40,6 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseDefaultFiles();
-app.UseStaticFiles();
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -50,6 +47,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();

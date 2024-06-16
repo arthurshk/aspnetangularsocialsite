@@ -1,20 +1,21 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace aspnetangularsocialsite.Server.Models
 {
-    public class SiteDbContext : DbContext
+    public class SiteDbContext : IdentityDbContext<ApplicationUser>
     {
         public SiteDbContext(DbContextOptions<SiteDbContext> options)
             : base(options)
         {
         }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Connection> Connections { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Like> Likes { get; set; }
-        public DbSet<Login> Logins { get; set; }
-        public DbSet<Register> Registers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
