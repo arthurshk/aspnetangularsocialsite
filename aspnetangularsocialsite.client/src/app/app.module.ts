@@ -28,6 +28,7 @@ import { RegisterComponent } from './register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { NavComponent } from './nav/nav.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -55,7 +56,8 @@ export function tokenGetter() {
     HomeComponent,
     UserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
