@@ -17,8 +17,8 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/register`, { email, password, confirmPassword });
   }
 
-  login(credentials: any) {
-    return this.http.post(`${this.apiUrl}/api/auth/login`, credentials).subscribe((res: any) => {
+  login(email: string, password: string) {
+    return this.http.post(`${this.apiUrl}/api/auth/login`, { email, password }).subscribe((res: any) => {
       localStorage.setItem('token', res.token);
       this.router.navigate(['/']);
     });
