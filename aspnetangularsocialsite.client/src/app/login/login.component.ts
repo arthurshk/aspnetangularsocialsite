@@ -15,12 +15,12 @@ export class LoginComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   login() {
-    this.authService.login(this.email, this.password).subscribe(
-        (      response: any) => {
+    this.authService.login({ email: this.email, password: this.password }).subscribe(
+      response => {
         console.log('Login successful');
         this.router.navigate(['/']);
       },
-        (      error: { error: { message: string; }; }) => {
+      error => {
         console.error('Login failed', error);
         this.errorMessage = error.error.message || 'Login failed';
       }

@@ -16,11 +16,12 @@ export class RegisterComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   register() {
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match';
-      return;
-    }
-    this.authService.register(this.email, this.password, this.confirmPassword).subscribe(
+    const user = {
+      email: this.email,
+      password: this.password,
+      confirmPassword: this.confirmPassword
+    };
+    this.authService.register(user).subscribe(
       response => {
         console.log(response.message);
         this.router.navigate(['/login']);
