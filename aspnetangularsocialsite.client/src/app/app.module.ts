@@ -1,9 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { AuthModule } from '@auth0/auth0-angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
@@ -33,7 +34,8 @@ import { NavComponent } from './nav/nav.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
-
+const domain = environment.auth0.domain;
+const clientId = environment.auth0.clientId;
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +72,10 @@ export function tokenGetter() {
         allowedDomains: ['localhost:5001'],
         disallowedRoutes: ['localhost:5001/api/auth/login', 'localhost:5001/api/auth/register']
       }
+    }),
+    AuthModule.forRoot({
+      domain: domain,
+      clientId: clientId
     })
   ],
   providers: [AuthService, AuthGuard],

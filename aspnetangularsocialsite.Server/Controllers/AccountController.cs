@@ -38,7 +38,7 @@ namespace aspnetangularsocialsite.Server.Controllers
         public async Task Logout()
         {
             var authenticationProperties = new LogoutAuthenticationPropertiesBuilder()
-              .WithRedirectUri(Url.Action("Index", "Home"))
+              .WithRedirectUri("https://localhost:4200/login")
               .Build();
             await HttpContext.SignOutAsync(
               Auth0Constants.AuthenticationScheme,
