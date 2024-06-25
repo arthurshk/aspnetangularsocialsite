@@ -6,6 +6,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
+import { SecureComponent } from './components/secure/secure.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { CommentDetailComponent } from './components/comment-detail/comment-detail.component';
 import { CommentFormComponent } from './components/comment-form/comment-form.component';
@@ -23,6 +24,7 @@ import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'secure', component: SecureComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'user', component: UserComponent },

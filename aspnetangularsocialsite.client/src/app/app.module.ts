@@ -30,6 +30,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { NavComponent } from './nav/nav.component';
+import { SecureComponent } from './components/secure/secure.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -59,7 +60,8 @@ const clientId = environment.auth0.clientId;
     UserComponent,
     LoginComponent,
     RegisterComponent,
-    NavComponent
+    NavComponent,
+    SecureComponent
   ],
   imports: [
     BrowserModule,
