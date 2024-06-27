@@ -35,8 +35,6 @@ import { SecureComponent } from './components/secure/secure.component';
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
-const domain = environment.auth0.domain;
-const clientId = environment.auth0.clientId;
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,8 +74,8 @@ const clientId = environment.auth0.clientId;
       }
     }),
     AuthModule.forRoot({
-      domain: domain,
-      clientId: clientId
+      domain: environment.auth0.domain,
+      clientId: environment.auth0.clientId
     })
   ],
   providers: [AuthService, AuthGuard],
