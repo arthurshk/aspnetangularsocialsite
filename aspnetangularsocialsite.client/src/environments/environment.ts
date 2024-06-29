@@ -1,8 +1,7 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:4200',
   auth0: {
-    domain: 'default-domain',
-    clientId: 'default-client-id'
+    domain: process.env['NG_AUTH0_DOMAIN'] || 'default-domain',
+    clientId: process.env['NG_AUTH0_CLIENT_ID'] || 'default-client-id'
   }
 };
