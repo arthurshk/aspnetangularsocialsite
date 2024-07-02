@@ -37,6 +37,9 @@
             "styles": [
               "src/styles.css"
             ],
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            },
             "scripts": []
           },
           "configurations": {
@@ -81,6 +84,9 @@
           },
           "defaultConfiguration": "development",
           "options": {
+            "customWebpackConfig": {
+              "path": "./webpack.config.js"
+            },
             "proxyConfig": "src/proxy.conf.js"
           }
         },
