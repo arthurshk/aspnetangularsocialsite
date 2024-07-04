@@ -4,5 +4,8 @@ export const environment = {
     domain: 'default-domain',
     clientId: 'default-client-id'
   },
+  "Stripe": {
+    "SecretKey": "default-key"
+  },
   apiUrl: 'http://localhost:4200/api'
 };
